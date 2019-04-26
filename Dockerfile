@@ -15,7 +15,7 @@ RUN dpkg --add-architecture i386 \
                                             libc6:i386 libx11-6:i386 libxext6:i386 \
                                             libstdc++6:i386 libexpat1:i386 \
                                             libxext6 libxrender1 libxtst6 libgtk2.0-0 \
-                                            libxslt1.1 libncurses5-dev check
+                                            libxslt1.1 libncurses5-dev check git
 
 # Download and Install XC32 Compiler
 RUN curl -fSL -A "Mozilla/5.0" -o /tmp/mplabxc32linux "http://www.microchip.com/mplabxc32linux" \
