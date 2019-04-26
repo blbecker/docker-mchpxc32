@@ -21,14 +21,14 @@ RUN dpkg --add-architecture i386 \
 RUN curl -fSL -A "Mozilla/5.0" -o /tmp/mplabxc32linux "http://www.microchip.com/mplabxc32linux" \
     && chmod a+x /tmp/mplabxc32linux \
     && /tmp/mplabxc32linux --mode unattended --unattendedmodeui none \
-        --netservername localhost --LicenseType FreeMode --prefix /opt/microchip/xc32 \
+        --netservername localhost --LicenseType FreeMode --prefix /opt/microchip/xc32/v${COMPILER_VERSION} \
     && rm /tmp/mplabxc32linux
 
 # Download and Install PLIBS
 RUN curl -fSL -A "Mozilla/5.0" -o /tmp/plibs.tar "http://ww1.microchip.com/downloads/en/DeviceDoc/PIC32%20Legacy%20Peripheral%20Libraries%20Linux.tar" \
     && tar xf /tmp/plibs.tar -C /tmp \
     && chmod a+x "/tmp/PIC32 Legacy Peripheral Libraries.run" \
-    && "/tmp/PIC32 Legacy Peripheral Libraries.run" --mode unattended --unattendedmodeui none --prefix /opt/microchip/xc32 \
+    && "/tmp/PIC32 Legacy Peripheral Libraries.run" --mode unattended --unattendedmodeui none --prefix /opt/microchip/xc32/v${COMPILER_VERSION} \
     && rm /tmp/plibs.tar \
     && rm "/tmp/PIC32 Legacy Peripheral Libraries.run"
 
